@@ -1,0 +1,4 @@
+C:\Users\user\Desktop\C++\ConsoleApp1\Rules\obj\Debug\net8.0\Rules.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\C++\ConsoleApp1\Rules\obj\Debug\net8.0\Rules.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\C++\ConsoleApp1\Rules\obj\Debug\net8.0\Rules.AssemblyInfo.cs
+C:\Users\user\Desktop\C++\ConsoleApp1\Rules\obj\Debug\net8.0\Rules.csproj.CoreCompileInputs.cache
