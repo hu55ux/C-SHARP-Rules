@@ -112,34 +112,126 @@
 //  Properties - özündə getter və setter saxlayan və arxa planda private field olan elemnetlərdir.
 // 3 növü var - 
 // 1. Auto property - Automatic getter və setteri olan property
-// 1. Full property - getter və setteri özümüz yaza bildiyimiz propertydir.
-// 1. Dependency property - 
+// 2. Full property - getter və setteri özümüz yaza bildiyimiz propertydir.
+// 3. Dependency property - dependency propertydir. Yəni bir propertynin dəyəri dəyişəndə digər propertynin dəyəri də dəyişir. Bu propertylər WPF-də istifadə olunur.
+//
+//
+// Yaratdığımız classın 3 ədəd varis metodu olur. Bunlar :
+// 1. ToString() - classın özünü string tipində qaytarır.
+// 2. GetHashCode() - classın hash kodunu qaytarır. Yəni classın özünə aid olan hash kodunu qaytarır.
+// 3. Equals() - obyektin bərabər olub olmadığını yoxlayır.
 //
 //
 //
+// null coalesce - iki dəyər arasında null olmayan dəyəri qaytarır. Amma iki dəyərdə null olarsa heçnə qaytarmır
+// null forgiving - null olan dəyəri null olmayan dəyərə çevirmək üçündür. ! işarəsi ilə yazılır.
+// 
+// Random rand = new Random();
+// rand.next(1, 100); - 1-100 arasında random dəyər alır
+// rand.Shared().Next() - ümumi bir dəyər qaytarır int32 tipində.static metoddur.
+// 
 //
+//                                                              String 
 //
-//
-//
-//
-//
-//
-//
-//
-//  
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+// 
+// String reference type-dır.
+// iki bərabər string müqayisə olunan zaman string heapda saxlanmasına baxmayaraq string özünü value type kimi aparır və true qaytarır.
+// 
+//  Methodlar:
+// 
+// string a="Hala Madrid";
+// a.Length - stringin uzunluğunu qaytarır
+// a.ToUpper() - stringi böyük hərflə qaytarır
+// a.ToLower() - stringi kiçik hərflə qaytarır
+// a.Trim() - stringin başındakı və sonundakı boşluqları silir
+// a.TrimStart() - stringin başındakı boşluqları silir
+// a.TrimEnd() - stringin sonundakı boşluqları silir
+// a[0] - stringin 0-cı indexini qaytarır
+// ToCharArray () => Char array return edir
+// Substring(0,3)    => icinden bir nece symbol ala bilirik
+// CompareTo("Hello");  => muqayise edir  True veya False return edir
+// Contains('a')        => icinde varsa true yoxdursa false
+// EndsWith("end")      => Sonu end ile bitirse true eks halda false gelir
+// StartsWith("Hell")   => Hell ile bashlasa True yoxsa False verir
+// IndexOf()   => Tapdiqinin index-ini verir
+// LastIndexOf() => Axtartmaqa saagdan bashlayir
+// IndexOfAny(new char[] { 'C', 'a', 'd' }); hecbiri yoxdursa -1 verir tapdiqda  index verir
+// LastIndexOfAny(new char[] { 'C', 'a', 'd' }); hecbiri yoxdursa -1 verir tapdiqda  index verir
+// Insert(0, "Hello") => verilmish indexse verilen deyer elave edilir
+// PadLeft(10)  => sonuna bosluq elave edir verilen qeder
+// PadRight(10) => Sag terefe verilen qeder boshluq qoyur
+// Remove(1)     => verilen indexden sonrakilarin hamisini silir
+// Remove(3, 9)  => verilen index araliqindakilari silir
+// Split(' ')    => Bosluqa gore parcalayir ve string array qaytarir
+// 
+//                                                  Arrays
+// 
+// Array - arraylar eyni tipli elementlərin toplusudur. Arraylar heapda saxlanılır. Arraylar reference type-dır. Arraylar 0-dan başlayır.
+// 
+// int[] arr = new int[] { 1, 2, 3, 4, 5 };
+// int[] arr = new[] { 1, 2, 3, 4, 5 };
+// int[] arr = { 1, 2, 3, 4, 5 };
+// 
+// int[] arr2.CopyTo(arr, 0); - arr2-nin elementlərini arr-ə kopyalayır. 0-dan başlayır.
+// arr.Length - arrayin uzunluğunu qaytarır.
+// Array özü bir class olduğu üçün onun özündə olan metodlardan istifadə edə bilərik. Məsələn:
+// Array.Sort(arr); - arrayi sıralayır.
+// Array.Reverse(arr); - arrayi tərsinə çevirir.
+// Array.Clear(arr, 0, arr.Length); - arrayi təmizləyir. 0-dan başlayır və arrın uzunluğuna qədər olan elementləri silir. 
+// Array.BinarySearch(arr, 0, arr.Length, 5); - arraydə 5-i axtarır. Əgər varsa indexini qaytarır. Yoxdursa -1 qaytarır. Amma mütləq sıralı bir array olmalıdır.
+// Array.Find(arr, x => x == 5); - arraydə 5-i axtarır. Əgər varsa onu qaytarır. Yoxdursa null qaytarır.
+// Array.FindAll(arr, x => x > 5); - arraydə 5-dən böyük olan elementləri axtarır. Əgər varsa onları qaytarır. Yoxdursa null qaytarır.
+// Array.ForEach(arr, x => Console.WriteLine(x)); - arraydəki elementləri dövr edir və onları ekrana çıxarır.
+// 
+// 
+// 
+// 
+// Çoxölçülü arraylar 2 və daha artıq ölçülü arraylardır.Bunların iki növü var:
+// 1. Rectangle array - ölçüsü stabil olan arraylardır.
+// 2. Jagger array - ölçüsü dinamik olan arraydır.
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
