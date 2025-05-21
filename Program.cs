@@ -190,6 +190,119 @@
 // 1. Rectangle array - ölçüsü stabil olan arraylardır.
 // 2. Jagger array - ölçüsü dinamik olan arraydır.
 // 
+//                                                                  Struct vs Class
+//
+// 1. Struct value typedır. Class isə reference typedır.
+// 2. Struct stackda saxlanılır. Class isə heapda saxlanılır.
+// 3. Struct struct keywordu ilə yaradılır. Class isə class keywordu ilə yaradılır
+// 4. Struct instance yaranarkən new keywordu vacib deyil. Classda isə new keywordu vacibdir.
+// 5. Structda bir dəyişəndə edilən dəyişiklik digərinə təsir etmir. Classda isə dəyişənlər bir-birindən asılı olduqda dəyişikliklər təsir edir.
+// 6. Structda parametrsiz constructor olmur. Classda isə parametrsiz constructor olur.
+// 7. Structda destructor olmur. Classda isə destructor olur.
+// 8. Struct inheritance əlaqədə iştirak etmir. Class isə inheritance əlaqədə iştirak edir.
+// 
+// 
+//                                                                      OOP keywordlar
+// 
+// 1. Multiple inheritance yoxdur (diamond problemə görə). Onun yerinə interface istifadə olunur.
+// 2. GUID - global unique ID yaradarkən istifadə olunur.
+// 3. inheritance zamanı paramtrized constrictor yaradılarkən base classın adı yerinə sadəcə base keywordu yazılır.
+// Məsələn: 
+// public Student(Guid id,string? name,DateTime birthdate,float score)
+// :base(id,name,birthdate)
+// 
+// 4. sealed - final keywordu əvəzinə istifadə olunur və metodun növbəti override olmasının qarşısını alır.
+// 5. new keywordu metodların qarşısında yazıldıqda override etmədən base classda olan metodun əzib keçmək üçün istifadə olunur.
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 // 
 // 
 // 
