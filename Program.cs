@@ -1,4 +1,4 @@
-﻿//                                                  c# Qaydalar
+﻿//                                                                          C# Qaydalar
 
 // C# C++-ın yeni versiyasıdır. 
 // .NET Framework-in bir hissəsidir. əvvəlki versiyalarda sadəcə windows üçün idi. Amma daha sonra çıxan yeni versiyalar artıq bütün platformalarda işləyə bilir.
