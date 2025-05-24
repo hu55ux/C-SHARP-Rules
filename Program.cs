@@ -217,32 +217,32 @@
 // 
 // 
 // 
+// OOP prinsipləri:
+// 1. Encapsulation - İstifadəçiyə sadəcə ona lazım olan məlumatları və metodları göstərmək üçün istifadə olunur. 
+// Access modifierlər vasitəsilə tətbiq olunur:
+// 1. Public - hər yerdə görünür.
+// 2. Private - sadəcə həmin class daxilində görünür.
+// 3. Protected - sadəcə həmin class və o classdan miras alan classlarda görünür.
+// 4. İnternal - sadəcə o assemblynin daxilində görünür.
+// 5. Protexted İnternal - sadəcə həmin assemblynin və o classdan miras alan classlarda görünür.
+// Getter setter metodlarıda property məntiqi daxilində istifadə olunur.
 // 
 // 
+// 2. Polymorphysm - metod və funksiyaların olduğu mühitə uyğun olaraq fərqli şəkildə işləməsidir.
+// 2 cür olur. 
+// 1. Static polymorphysm (compile time) - method overloading zamanı baş verən polymorphysmdir.  
+// 2. Dynamic polymorphysm (run time) - method overriding zamanı baş verən polymorphysmdir.
 // 
 // 
+// 3. İnheritance - miras əlaqəsi. Bir class bir və ya bir neçə classa varislik verə bilər.
+// Lakin hər bir class sadəcə bir classdan varislik qəbul edə bilir. Buda diamond problemin C#-da olmamasının səbəbidir..
+// Base classın contructorunu base keywordu ilə çağıra bilirik yəni base classın adını yazmağa ehtiyyac qalmır
 // 
+// 4. Abstraction - Varislik əlaqəsi zamanı bəzi classlar olur ki bu classlar heç bir obyekt yaratmır. Methodlar olur amma içləri doldurulmur.
+// Sadəcə base olaraq istifadə olunur. Belə classlar abstract class adlanır.
+// Və abstract classda virtual yaratdığımız hər bir metod ilə biz varis olan classları bu metodları istifadəyə məcbur edirik.
 // 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
+// Static class - Static class o classlara deyilir ki biz həmin classdan bir obyekt yaratmadan belə onun metod və ya memberlarınıı istifadə edə bilirik.
 // 
 // 
 // 
