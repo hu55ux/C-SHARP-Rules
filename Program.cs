@@ -245,25 +245,27 @@
 // Static class - Static class o classlara deyilir ki biz həmin classdan bir obyekt yaratmadan belə onun metod və ya memberlarınıı istifadə edə bilirik.
 // 
 // 
+//                                                                          Interface
+// Interface obyekti yaradıla bilinmeyen içində sadəcə methodlar olan və bu methodları implementasiya edə bilən bir kod blokudur.
+// Hər bir class istənilən sayda interface-dən implementasiya qəbul edir. Interface-lər default olaraq internal olur.
+// Interface daxilində bodysi olan methodlarda ola bilər amma bunlar mütləq implementasiya zamanı override olunmalıdır.
+// 
+// SOLID prinsipləri - 
+// 1. Single responsibility - Hər bir code blokunun sadəcə bir məsuliyyət daşıması məcburiyyətidir.
+// 2. Open / Closed Prinsipi - Hər bir code dəyişikliklərə qapalı amma inkişafa açıq olmalıdır.
+// 3. Liskov Substitution - Əgər bir class digər classdan miras alırsa, o zaman miras alan classın bütün metodlarını və xüsusiyyətlərini istifadə edə bilməlidir. Yəni miras alan classın hər bir metodu base classın metodunu əvəz edə bilməlidir.
+// 4. Interface Segregation - Hər bir interface öz məsuliyyətini daşımalıdır və interface-lər çox böyük olmamalıdır.
+// 5. Dependency Inversion - Yüksək səviyyəli modullar aşağı səviyyəli modullardan asılı olmamalıdır. Hər ikisi abstraksiyadan asılı olmalıdır. Abstraksiyalar konkret implementasiyalardan asılı olmamalıdır.
 // 
 // 
 // 
+//                                                                      Exception Handling
 // 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
+// Kod səhv yazılan zaman və ya error baş verən zaman kodun çökmə hadisəsinə exception deyilir. C#-da exception system tərəfindən verilən zaman kodumuz çökür.
+// Amma biz kodumuzun çöküşünü istəmiriksə bu zaman exception handling istifadə edirik. Exception handling 3 əsas blokdan ibarətdir:
+// try - code blokunda error təhlükəsi olan kodlar yazılır.
+// catch - try blokunda error baş verərsə bu blok işə düşür və erroru tutaraq kodun çökməsinin qarşısını alır.
+// finally - try və catch blokları işləndikdən sonra həmişə işə düşən blokdur. Bu blokda resursların sərbəst buraxılması və ya digər təmizləmə əməliyyatları aparılır.
 // 
 // 
 // 
