@@ -96,10 +96,6 @@
 // Value type heç bir zaman null olmur çünki hər bir zaman default dəyəri olur. Amma əgər null etmək məcburiyyətində qaldıqda sonuna ? işarəsi qoyuruq və nullable etmiş oluru 
 //
 //
-//
-//
-//
-//
 //                                                          OOP 
 //
 // classlarda olan field və metodların acces modifierləri hər biri üçün qarşısında yazılır. Və default olaraq hər biri private olur.
@@ -266,6 +262,148 @@
 // try - code blokunda error təhlükəsi olan kodlar yazılır.
 // catch - try blokunda error baş verərsə bu blok işə düşür və erroru tutaraq kodun çökməsinin qarşısını alır.
 // finally - try və catch blokları işləndikdən sonra həmişə işə düşən blokdur. Bu blokda resursların sərbəst buraxılması və ya digər təmizləmə əməliyyatları aparılır.
+// 
+// 
+//                                                          Serialization və Deserialization
+// 
+// Json faylları bir-biri ilə əlaqəli olmayan dillər arasında əlaqə yaratmaq üçün istifadə olunur. Json faylları sadə və oxunaqlı bir formatdır. Json faylları obyektlərin yaddaşa və ya fayla yazılması və oxunması üçün istifadə olunur.
+// Serialization və Deserialization obyektlərin yaddaşa və ya fayla yazılması və oxunması prosesləridir.
+// Serialization - obyektin yaddaşa yazılması və ya fayla yazılması prosesidir. Bu prosesdə obyektin bütün məlumatları yaddaşa və ya fayla yazılır.
+// Deserialization - obyektin yaddaşdan və ya fayldan oxunması prosesidir. Bu prosesdə yaddaşa və ya fayla yazılan obyektin bütün məlumatları oxunur və obyektə çevrilir.
+// methodların serialize və deserialize olunması üçün System.Text.Json və ya Newtonsoft.Json kitabxanalarından istifadə edə bilərik.
+// Məsələn: 
+// string name1 = "Hala Madrid";
+// string name2 = "Hola Madridistas";
+// var names = new List<string> { name1, name2 };
+// string json = JsonSerializer.Serialize(names); // Serialization
+// File.WriteAllText("names.json", json); // Json faylına yazır
+// Bu şəkildə yazılan zaman bir sətir şəklində yazılır. Yazılan dataların daha səliqəli şəkildə yazılması üçün 
+// var options = new JsonSerializerOptions{WriteIndented = true}
+// string jsonString=JsonSerializer.Serialize(names,options); istifadə olunur və səliqəli şəkildə faylda qeydiyyat aparılır. 
+// 
+// 
+// 
+//                                                                                          Delegate
+// 
+// Delegates - C#-da funksiyaları və metodları bir dəyişən kimi saxlamaq üçün istifadə olunan bir növ referans tipidir.
+// Syntax : public delegate returnType DelegateName(parameterType parameterName);
+// Multicast delegates - birdən çox metodun eyni anda çağırılmasını təmin edən delegate-lərdir. Bu delegate-lər += və -= operatorları ilə birləşdirilir və ayrılır.
+// Generic delegates - C#-da delegate-lərin generic versiyasıdır. Bu delegate-lər System.Func, System.Action və System.Predicate kimi hazırda mövcud olan delegate-lərdir.
+// Standart delegates - 4 növ standart delegate var: 
+// 1. Action - 16 - ya qədər parametr qəbul edə bilən və void returntypeda olan methodlar üçün nəzərdə tutulmuş generic delegate-dir.
+// 2. Func - 16 - ya qədər parametr qəbul edə bilən və return type-ı olan methodlar üçün nəzərdə tutulmuş generic delegate-dir.
+// 3. Predicate - 1 parametr qəbul edən və bool return type-ı olan methodlar üçün nəzərdə tutulmuş generic delegate-dir.
+// 4. Comparison - 2 parametr qəbul edən və int return type-ı olan methodlar üçün nəzərdə tutulmuş generic delegate-dir. Bu delegate-lər sortlama əməliyyatlarında istifadə olunur.o.sefc
+// 
+// 
+// Indexator - C#-da class və ya struct daxilində array və ya kolleksiya kimi verilənlərə indekslə daxil olmaq üçün istifadə olunan bir xüsusiyyətdir.
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 // 
 // 
 // 
