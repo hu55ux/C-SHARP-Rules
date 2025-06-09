@@ -297,21 +297,25 @@
 // 
 // 
 // Indexator - C#-da class və ya struct daxilində array və ya kolleksiya kimi verilənlərə indekslə daxil olmaq üçün istifadə olunan bir xüsusiyyətdir.
+// Indexatorlar class və ya struct daxilində bir property kimi təyin olunur və [] operatoru ilə çağırılır.
 // 
 // 
+//                                                                      Standart Interfaces
 // 
+// Bildiyimiz kimi classlardan törəmə zamanı class yeni classın kim olduğunu və ya nə olduğunu bildirir. 
+// Amma Interface-lər isə classımızın nə edə bildiyini idarə edir.
+// Standart Interfacelər C#-ın özü ilə gələn interfacelərdir.Məsələn:
+// Biz bu metodları əsas classımızda implement edərək metodun necə işləyəcəyini təyin edirik.
+// IEnumerable - Classın elementlərini dövr etməyə imkan verən interface-dir. Bu interface-in içərisində GetEnumerator() metodu var.
+//
+// IComperable - Classın elementlərini müqayisə etməyə imkan verən interface-dir. Bu interface-in içərisində CompareTo() metodu var.
+//
+// IComparer - Classın elementlərini müqayisə etməyə imkan verən interface-dir. Bu interface-in içərisində Compare() metodu var.
+// IComparer istifadəsi zamanı classın obyektlərinin müqayisə üçün lazım olan fieldlarına uyğun Comparer classları yaradılır və IComparer interfacei implementasiya edilir.
+// Daha sonra müqayisə məntiqi tətbiq edilən bir Compare metodu yazılır və artıq biz bu Comparer classını Sort metoduna parametr olaraq verərək elementləri müqayisə edə bilirik.
 // 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
+// ICloneable - Classın obyektini klonlamağa imkan verən interface-dir. Bu interface-in içərisində Clone() metodu var.
+// Clone metodu implementasiya edildikdə deep copy olur və dəyişikliklər digər obyektə təsir etmir.
 // 
 // 
 // 

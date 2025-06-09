@@ -2,3 +2,4 @@ C:\Users\user\Desktop\C++\ConsoleApp1\Rules\obj\Debug\net8.0\Rules.GeneratedMSBu
 C:\Users\user\Desktop\C++\ConsoleApp1\Rules\obj\Debug\net8.0\Rules.AssemblyInfoInputs.cache
 C:\Users\user\Desktop\C++\ConsoleApp1\Rules\obj\Debug\net8.0\Rules.AssemblyInfo.cs
 C:\Users\user\Desktop\C++\ConsoleApp1\Rules\obj\Debug\net8.0\Rules.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\C++\ConsoleApp1\Rules\obj\Debug\net8.0\Rules.sourcelink.json
