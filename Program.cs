@@ -319,30 +319,100 @@
 // 
 // 
 // 
+//                                                          String Builder
+// 
+// String builder - C#-da string-ləri daha səmərəli şəkildə manipulyasiya etmək üçün istifadə olunan bir classdır. String builder, string-lərin dəyişdirilməsini və əlavə edilməsini daha sürətli və effektiv edir.
+// String builderin öz capacitysi olduğuna görə string builder ilə işləyərkən string-lərin uzunluğu artdıqca yeni string yaradılmır, sadəcə string builderin capacity-si artırılır.
+// Buda garbage collectorun işini azaldır və performansı artırır. String builder ilə işləmək üçün System.Text namespace-i daxil edilməlidir.
+// String builderin capacitysi 16-dır və simvolların sayı artdıqca capacity hər dəfə 2 qat artırılır.
+// String builderin öz xüsusi metodları var ki, bu metodlar string-lərlə işləmək üçün istifadə olunur. Məsələn:
+// Append() - string builderə yeni string əlavə edir.
+// Replace() - string builderdəki stringi dəyişdirir.
+// String builderi daha çox döngülərdə və ya çoxlu sayda string manipulyasiyaları zamanı istifadə etmək daha səmərəlidir. Və sonda isə ToString() metodunu istifadə edərək string builderi string-ə çevirə bilərik. Məsələn:
+// string name = "Hala Madrid";
+// StringBuilder sb = new StringBuilder(name);
+// sb.Append(" Hola Madridistas");
+// sb.Replace("Madrid", "Madridistas");
+// sb.ToString(); // String builderi string-ə çevirir və nəticəni alır
+// sb.Clear(); // String builderi təmizləyir və bütün məlumatları silir
+// 
+// 
+//                                                      Non generic Collections
+// 
+// Non-generic collections - C#-da eyni tipli olmayan elementləri saxlamaq üçün istifadə olunan kolleksiyalardır. Bu kolleksiyalar System.Collections namespace-i daxil edilməlidir.
+// Bu collectionslar data təhlükəsizliyi təmin etmir və performans baxımından generic collectionslardan daha az səmərəlidir.
+//
+// ArrayList - C#-da non-generic kolleksiyalardan biridir. ArrayList, eyni tipli olmayan elementləri saxlaya bilən bir kolleksiyadır.
+// ArrayList, dinamik ölçülü bir array kimi işləyir və elementləri əlavə etmək və silmək üçün istifadə olunur. ArrayList, System.Collections namespace-i daxil edilməlidir.
+// 
+// 
+// Stack - C#-da non-generic kolleksiyalardan biridir. Stack, LIFO (Last In First Out) prinsipi ilə işləyən bir kolleksiyadır. Yəni sonuncu əlavə edilən element ilk olaraq çıxarılır.
+// Stack, System.Collections namespace-i daxil edilməlidir.
+// 
+// Queue - C#-da non-generic kolleksiyalardan biridir. Queue, FIFO (First In First Out) prinsipi ilə işləyən bir kolleksiyadır.
+// Yəni ilk əlavə edilən element ilk olaraq çıxarılır.
+// 
+// Hashtable - C#-da non-generic kolleksiyalardan biridir. Hashtable, açar-dəyər cütlərini saxlamaq üçün istifadə olunan bir kolleksiyadır.
+// Hashtable, System.Collections namespace-i daxil edilməlidir.
+// 
+// 
+//                                                              Generic Collections
+// 
+// Generic collections - C#-da eyni tipli elementləri saxlamaq üçün istifadə olunan kolleksiyalardır. Generic collections
+// C#-ın II versiyası ilə gəlmiş və non generic collectionslarda olan data təhlükəsizliyi problemlərinin qarşısını almaq üçün təkmilləşdirilmişdir.
+// Bu kolleksiyalar System.Collections.Generic namespace-i daxil edilməlidir.
+// 
+// List<T> - C#-da generic kolleksiyalardan biridir. List<T>, eyni tipli elementləri saxlamaq üçün istifadə olunan bir kolleksiyadır.
+// List<T>, dinamik ölçülü bir array kimi işləyir və elementləri əlavə etmək və silmək üçün istifadə olunur. List<T>, System.Collections.Generic namespace-i daxil edilməlidir.
+// 
+// 
+// Stack<T> - C#-da generic kolleksiyalardan biridir. Stack<T>, LIFO (Last In First Out) prinsipi ilə işləyən bir kolleksiyadır. Yəni sonuncu əlavə edilən element ilk olaraq çıxarılır.
+// 
+// 
+// Queue<T> - C#-da generic kolleksiyalardan biridir. Queue<T>, FIFO (First In First Out) prinsipi ilə işləyən bir kolleksiyadır. Yəni ilk əlavə edilən element ilk olaraq çıxarılır.
+// 
+// 
+// Dictionary<TKey, TValue> - C#-da generic kolleksiyalardan biridir. Dictionary<TKey, TValue>, açar-dəyər cütlərini saxlamaq üçün istifadə olunan bir kolleksiyadır.
+// Bu kolleksiya, açarların unikal olmasını təmin edir və dəyərlərə açarlar vasitəsilə daxil olmaq mümkündür.
+// 
+// 
+// SortedList<TKey, TValue> - C#-da generic kolleksiyalardan biridir. SortedList<TKey, TValue>, açar-dəyər cütlərini saxlamaq üçün istifadə olunan bir kolleksiyadır.
+// Bu kolleksiya, açarların sıralı olmasını təmin edir və dəyərlərə açarlar vasitəsilə daxil olmaq mümkündür.
+// 
+// LinkedList<T> - C#-da generic kolleksiyalardan biridir. LinkedList<T>, elementləri düyünlər şəklində saxlamaq üçün istifadə olunan bir kolleksiyadır.
 // 
 // 
 // 
+//                                                              Boxing and Unboxing
+// 
+// Boxing - Value type dəyərləri reference (object) type dəyişənlərə yazmaq üçün istifadə olunan bir prosesdir.
+// Bu prosesdə value type dəyəri heap yaddaşında saxlanılır və reference type dəyişənə təyin edilir.
+// Bu proses C#-da bahalı proses adlanır və data təhlükəsizliyinə səbəb ola bilər.
+// 
+// Unboxing - Reference type dəyişənlərdən value type dəyərləri çıxarmaq üçün istifadə olunan bir prosesdir.
 // 
 // 
 // 
+//                                                                  Events
 // 
+// Event - C#-da obyektlərin bir-biri ilə əlaqə qurmasını təmin edən bir mexanizmdir. Events, bir obyektin baş verən hadisələrə reaksiya verməsini təmin edir.
+// Event-lər delegate-lərlə işləyir.
+// Məsələn, bir düyməyə basıldığında və ya bir obyektin vəziyyəti dəyişdiyində baş verən hadisələri izləmək üçün istifadə olunur. Məsələn:
+// public class Button{
+//     public event EventHandler Clicked; // Event declaration
+// }
+// public class Program{
+//     public static void Main(string[] args){
+//          Button button = new Button();
+//          button.Clicked += Button_Clicked; // Event subscription
+//          button.OnClicked(); // Event invocation
+// }
 // 
+//  
+//                                                          Event Arguments
 // 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
+// Event handlers - C#-da event-lərin işlənməsi üçün istifadə olunan delegate-lərdir. Event handler-lər, event baş verdikdə çağırılan metodlardır.
+// Event args - C#-da event-lərin işlənməsi üçün istifadə olunan məlumatları saxlayan bir classdır. Event args, event baş verdikdə əlavə məlumatları təmin edir.
 // 
 // 
 // 
