@@ -456,6 +456,8 @@
 // 4. GroupBy - kolleksiyanı müəyyən bir property-yə görə qruplaşdırmaq üçün istifadə olunur.
 // 5. Join - iki kolleksiyanı müəyyən bir property-yə görə birləşdirmək üçün istifadə olunur.
 // 6. From - LINQ sorğularını başlatmaq üçün istifadə olunur. Bu metod, LINQ sorğularını yazmağa imkan verir və kolleksiyalardan məlumatları seçmək üçün istifadə olunur.
+// 7. ToList - LINQ sorğusunun nəticələrini List tipinə çevirmək üçün istifadə olunur. Bu metod, LINQ sorğusunun nəticələrini List tipinə çevirir və nəticələri List şəklində qaytarır.
+// 8. into - LINQ sorğularında intermediate nəticələri saxlamaq üçün istifadə olunur. Bu metod, LINQ sorğularında intermediate nəticələri saxlamaq və daha sonra istifadə etmək üçün istifadə olunur.
 // Məsələn :
 // var result = from item in collection
 //              where item.Property == value
