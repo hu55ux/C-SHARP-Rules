@@ -416,37 +416,50 @@
 // 
 // 
 // 
+//                                                          Generic
+// 
+// C#-da genericlik - metodlarımızın funskiyalarımızın və s. daha sürətli və bütün tiplərlə işləmə bacarığıdır.
+// C#-da generic edə bilirik : 
+// Class
+// Struct
+// Methods
+// İnterface
+// Delegate
+// Collections.
+// 
+// Syntax: class Some<T>
+// {
+//      public T value{get;set;}
+// }
+// 
+// Biz bu template-ə filterdə əlavə edə bilərik buda <T> yazıldıqdan sonra qeyd olunmalıdır. Məsələn:
+// Some<T> where T: class, IEnumerable<int> - burda biz template hissədə yalnız sayıla bilən class yerləşdirməli olduğunu bildiririk.
 // 
 // 
 // 
+//                                                              LINQ
 // 
+// LINQ - Language Inteqrated Query - Dilə inteqrasiya olunmuş(declarative) sorğu dilidir. Bu dil bizə collections ilə işləməyə onları müəyyən 
+// bir filterlər tətbiq etməyə imkan verir. Bu zaman biz sadəcə şərtləri və ya lazım olan hissələri veririk və arxa fonda görülən işi görmürük LINQ bu işləri özü həll edir.
+// LINQ-un bir neçə növü var
+// LINQ to Object - C#-da obyektlər ilə işləmək üçün istifadə olunan LINQ növüdür. Bu LINQ növü, C#-ın özündə olan kolleksiyalarla işləmək üçün istifadə olunur. Məsələn, List, Array, Dictionary və s. ilə işləmək üçün istifadə olunur.
+// LINQ to Dataset - C#-da DataSet ilə işləmək üçün istifadə olunan LINQ növüdür. Bu LINQ növü, DataSet və DataTable ilə işləmək üçün istifadə olunur. Məsələn, DataSet-dəki cədvəllərlə işləmək üçün istifadə olunur.
+// LINQ to Entities - C#-da Entity Framework ilə işləmək üçün istifadə olunan LINQ növüdür. Bu LINQ növü, Entity Framework ilə işləmək üçün istifadə olunur. Məsələn, Entity Framework ilə verilənlər bazası ilə işləmək üçün istifadə olunur.
+// LINQ to SQL - C#-da SQL ilə işləmək üçün istifadə olunan LINQ növüdür. Bu LINQ növü, SQL sorğularını C#-da yazmağa imkan verir. Məsələn, Entity Framework ilə işləmək üçün istifadə olunur.
+// LINQ to XML - C#-da XML ilə işləmək üçün istifadə olunan LINQ növüdür. Bu LINQ növü, XML sənədləri ilə işləmək üçün istifadə olunur. Məsələn, XML sənədlərini oxumaq və yazmaq üçün istifadə olunur.
+// PLINQ - Parallel LINQ - C#-da paralel işləmək üçün istifadə olunan LINQ növüdür. Bu LINQ növü, paralel işləmə imkanları təqdim edir və performansı artırır. Məsələn, çox nüvəli prosessorlarda daha sürətli işləmək üçün istifadə olunur.
 // 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
+// LINQ-un əsas metodları:
+// 1. Select - kolleksiyadan elementləri seçmək üçün istifadə olunur. Məsələn, bir kolleksiyadan müəyyən bir property-ni seçmək üçün istifadə olunur.
+// 2. Where - kolleksiyadan elementləri filterləmək üçün istifadə olunur. Məsələn, bir kolleksiyadan müəyyən bir şərtə uyğun olan elementləri seçmək üçün istifadə olunur.
+// 3. OrderBy - kolleksiyanı müəyyən bir property-yə görə sıralamaq üçün istifadə olunur. Məsələn, bir kolleksiyanı müəyyən bir property-yə görə artan və ya azalan sıraya salmaq üçün istifadə olunur.
+// 4. GroupBy - kolleksiyanı müəyyən bir property-yə görə qruplaşdırmaq üçün istifadə olunur.
+// 5. Join - iki kolleksiyanı müəyyən bir property-yə görə birləşdirmək üçün istifadə olunur.
+// 6. From - LINQ sorğularını başlatmaq üçün istifadə olunur. Bu metod, LINQ sorğularını yazmağa imkan verir və kolleksiyalardan məlumatları seçmək üçün istifadə olunur.
+// Məsələn :
+// var result = from item in collection
+//              where item.Property == value
+//              select item;
 // 
 // 
 // 
