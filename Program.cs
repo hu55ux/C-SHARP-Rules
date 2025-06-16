@@ -466,6 +466,96 @@
 // 
 // 
 // 
+//                                                          Anonymous Methods
+// 
+// Anonim methods -  yəni adlandırılmamış metodlardır. Bu metodlar, adlandırılmış metodlardan fərqli olaraq, birbaşa kod blokunda yazılır və adlandırılmır. 
+// Anonim metodlar, delegate-lərlə işləmək üçün istifadə olunur və adətən event-lərdə və ya callback funksiyalarında istifadə olunur.
+// Anonim methodlar yaddaşda yer tutmaması və performans baxımından daha səmərəli olması üçün istifadə olunur.
+// Anonim methodların syntax:
+// delegate(parameters) { code block; }
+// Məsələn:
+// var Numbers = new List<int> { 1, 2, 3, 4, 5 };
+// var evenNumbers = Numbers.Where(delegate(int x) {return x % 2 != 0;}).ToList(); // Anonim method ilə filterləmə
+// Bu cür yazılan anonim methodlar sadəcə yarandığı anda yaddaşda kiçik bir yer tutur və daha sonra istifadə olunmadığı zaman garbage collector tərəfindən təmizlənir.
+// Bu yazılış forması daha çox LINQ ilə işləyərkən istifadə olunur. Amma anonim methodların istifadəsi biraz uzun olduğu üçün daha çox lambda ifadələri istifadə olunur.
+// 
+// 
+// 
+//                                                                  Lambda Expressions
+// 
+// Lambda expression - C#-da anonim methodların daha qısa və oxunaqlı bir versiyasıdır. Lambda ifadələri, delegate-lərlə işləmək üçün istifadə olunur və adətən LINQ sorğularında və ya event-lərdə istifadə olunur.
+// Syntax:
+// (parameters) => expression;
+// var Numbers = new List<int> { 1, 2, 3, 4, 5 };
+// var evenNumbers= Numbers.Where(x => x % 2 != 0).ToList(); // Lambda ifadəsi ilə filterləmə
+// 
+// 
+// 
+// Lambda ifadələr Pure methodlar olmalıdır. Yəni Təmiz method deyərkən biz qlobal dəyişən istifadə etməməliyik, sadəcə metod daxilindəki parametrlərdən istifadə etməliyik.
+// Və içəridəki kodda datalar dəyişilməməlidir sadəcə oxunmalı yoxlanılmalıdır.
+// 
+// 
+//                                                          
+//  
+//                                                                   Extension Methods
+// 
+// Extension methods - C#-da mövcud olan classlara yeni metodlar əlavə etmək üçün istifadə olunan bir xüsusiyyətdir.
+// Bu metodlar, mövcud classların funksionallığını genişləndirmək üçün istifadə olunur və mövcud classların kodunu dəyişdirmədən yeni metodlar əlavə etməyə imkan verir.
+// Belə methodlar static class daxilində static metodlar kimi təyin olunur və this keywordu ilə istifadə olunan classın tipini göstərir.
+// Syntax:
+//  static class ExtensionMethods
+//  {
+//      public static void NewMethod(this ExistingClass obj, parameters){
+//          // method body
+//      }
+//  }
+// 
+// Məsələn, String classına yeni bir metod əlavə etmək üçün aşağıdakı kimi bir extension method yarada bilərik:
+// 
+// static class StringExtensions{
+//     public static string ToUpperFirstLetter(this string str){
+//         if(string.IsNullOrEmpty(str)) return str;
+//         return char.ToUpper(str[0]) + str.Substring(1);
+//     }
+// 
+// string name = "hala madrid";
+// Console.WriteLine(name.ToUpperFirstLetter()); // Hala madrid
+// 
+// Extension methods, mövcud classların funksionallığını genişləndirmək üçün istifadə olunur və mövcud classların kodunu dəyişdirmədən yeni metodlar əlavə etməyə imkan verir.
+// Daha çox Linq sorğularında istifadə olunur və kodun uzanmasının qarşısını alır. 
+// 
+// Bəzi ən çox istifadə olunan methodlar:
+// First - verilənlər kolleksiyasının ilk elementini qaytarır. Əgər kolleksiya boşdursa və ya verilən parametrə uyğun element tapılmazsa exception atır.
+//
+// FirstOrdefault - verilənlər kolleksiyasının ilk elementini qaytarır. Əgər kolleksiya boşdursa və ya verilən parametrə uyğun element tapılmazsa null və ya həmin tipin default qiymətini qaytarır.
+// 
+// Single - verilənlər kolleksiyasının tək bir elementini qaytarır. Əgər kolleksiya boşdursa və ya bir neçə element varsa exception atır.
+// 
+// SingleOrDefault - verilənlər kolleksiyasının tək bir elementini qaytarır. Əgər element olmazsa və ya kolleksiya boş olarsa null qaytaracaq. Elementdən bir neçə ədəd olarsa exception atır.
+// 
+// Contains - verilənlər kolleksiyasının içərisində müəyyən bir elementin olub olmadığını yoxlayır. Əgər element varsa true, yoxdursa false qaytarır.
+// 
+// Where - verilənlər kolleksiyasını filterləmək üçün istifadə olunur. Bu metod, müəyyən bir şərtə uyğun olan elementləri seçmək üçün istifadə olunur. Məsələn, bir kolleksiyadan müəyyən bir property-yə görə elementləri seçmək üçün istifadə olunur.
+// 
+// Min - verilənlər kolleksiyasının ən kiçik elementini qaytarır. Əgər kolleksiya boşdursa exception atır.
+// 
+// Max - verilənlər kolleksiyasının ən böyük elementini qaytarır. Əgər kolleksiya boşdursa exception atır.
+// 
+// Average - verilənlər kolleksiyasının orta qiymətini qaytarır. Əgər kolleksiya boşdursa exception atır.
+// 
+// Sum - verilənlər kolleksiyasının cəmini qaytarır. Əgər kolleksiya boşdursa exception atır.
+// 
+// OrderBy - verilənlər kolleksiyasını müəyyən bir property-yə görə sıralamaq üçün istifadə olunur. Bu metod, kolleksiyanı artan və ya azalan sıraya salmaq üçün istifadə olunur. Məsələn, bir kolleksiyanı müəyyən bir property-yə görə artan və ya azalan sıraya salmaq üçün istifadə olunur.
+// 
+// OrderByDescending - verilənlər kolleksiyasını müəyyən bir property-yə görə azalan sıraya salmaq üçün istifadə olunur. Bu metod, kolleksiyanı azalan sıraya salmaq üçün istifadə olunur. Məsələn, bir kolleksiyanı müəyyən bir property-yə görə azalan sıraya salmaq üçün istifadə olunur.
+// 
+// ThenBy - verilənlər kolleksiyasını müəyyən bir property-yə görə ikinci dəfə sıralamaq üçün istifadə olunur. Bu metod, OrderBy metodundan sonra istifadə olunur və kolleksiyanı ikinci bir property-yə görə sıralamaq üçün istifadə olunur. Məsələn, bir kolleksiyanı əvvəlcə bir property-yə görə artan sıraya salmaq və sonra ikinci bir property-yə görə azalan sıraya salmaq üçün istifadə olunur.
+// 
+// ThenByDescending - verilənlər kolleksiyasını müəyyən bir property-yə görə ikinci dəfə azalan sıraya salmaq üçün istifadə olunur. Bu metod, OrderByDescending metodundan sonra istifadə olunur və kolleksiyanı ikinci bir property-yə görə azalan sıraya salmaq üçün istifadə olunur. Məsələn, bir kolleksiyanı əvvəlcə bir property-yə görə azalan sıraya salmaq və sonra ikinci bir property-yə görə artan sıraya salmaq üçün istifadə olunur.
+// 
+// 
+// 
+// 
 // 
 // 
 // 
