@@ -262,6 +262,8 @@
 // try - code blokunda error təhlükəsi olan kodlar yazılır.
 // catch - try blokunda error baş verərsə bu blok işə düşür və erroru tutaraq kodun çökməsinin qarşısını alır.
 // finally - try və catch blokları işləndikdən sonra həmişə işə düşən blokdur. Bu blokda resursların sərbəst buraxılması və ya digər təmizləmə əməliyyatları aparılır.
+// Serializable atributunu istifadə edərək classın serializable olduğunu bildiririk. Bu atribut classın serializable olduğunu bildirir və bu classın obyektləri yaddaşa və ya fayla yazıla bilər.
+// Bu atribut Bizim yaratdığımız Exception classımızın ideal olmasını təmin edir.
 // 
 // 
 //                                                          Serialization və Deserialization
@@ -552,6 +554,345 @@
 // ThenBy - verilənlər kolleksiyasını müəyyən bir property-yə görə ikinci dəfə sıralamaq üçün istifadə olunur. Bu metod, OrderBy metodundan sonra istifadə olunur və kolleksiyanı ikinci bir property-yə görə sıralamaq üçün istifadə olunur. Məsələn, bir kolleksiyanı əvvəlcə bir property-yə görə artan sıraya salmaq və sonra ikinci bir property-yə görə azalan sıraya salmaq üçün istifadə olunur.
 // 
 // ThenByDescending - verilənlər kolleksiyasını müəyyən bir property-yə görə ikinci dəfə azalan sıraya salmaq üçün istifadə olunur. Bu metod, OrderByDescending metodundan sonra istifadə olunur və kolleksiyanı ikinci bir property-yə görə azalan sıraya salmaq üçün istifadə olunur. Məsələn, bir kolleksiyanı əvvəlcə bir property-yə görə azalan sıraya salmaq və sonra ikinci bir property-yə görə artan sıraya salmaq üçün istifadə olunur.
+// 
+// Count - verilənlər kolleksiyasının element sayını qaytarır. Əgər kolleksiya boşdursa 0 qaytarır.
+// 
+// Take - verilənlər kolleksiyasının ilk n elementini qaytarır.S
+// 
+// Skip - verilənlər kolleksiyasının ilk n elementini atlayır və qalan elementləri qaytarır. 
+// 
+// TakeLast - verilənlər kolleksiyasının son n elementini qaytarır. Bu metod, kolleksiyanın son n elementini seçmək üçün istifadə olunur. 
+// 
+// SkipLast - verilənlər kolleksiyasının son n elementini atlayır və qalan elementləri qaytarır.
+// 
+// SkipWhile - verilənlər kolleksiyasında şərtə uuyğun olan ilk elementdən etibarən bütün elementləri qaytarır.
+// 
+// TakeWhile - verilənlər kolleksiyasında şərtə uyğun olan ilk elementə qədər bütün elementləri qaytarır.
+// 
+// Any - verilənlər kolleksiyasının içərisində müəyyən bir şərtə uyğun elementin olub olmadığını yoxlayır. Əgər element varsa true, yoxdursa false qaytarır.
+// 
+// All - verilənlər kolleksiyasının içərisində bütün elementlərin müəyyən bir şərtə uyğun olub olmadığını yoxlayır. Əgər bütün elementlər şərtə uyğundursa true, yoxdursa false qaytarır.
+// 
+// Join - iki verilənlər kolleksiyasını müəyyən bir property-yə görə birləşdirmək üçün istifadə olunur.
+// 
+// GroupJoin -ə verilənlər kolleksiyasını müəyyən bir property-yə görə qruplaşdırmaq üçün istifadə olunur.
+// 
+// 
+// 
+//                                                                          Garbage Collector
+// 
+// Stack - idarə olunan yaddaşın bir hissəsidir və metodlar çağırıldıqda və ya dəyişənlər yaradıldıqda istifadə olunur. Stack, LIFO (Last In First Out) prinsipi ilə işləyir. Yəni sonuncu əlavə edilən element ilk olaraq çıxarılır. Stack, metodların və dəyişənlərin yaddaşda saxlanılması üçün istifadə olunur və metodlar bitdikdə avtomatik olaraq təmizlənir.
+// Heap - C#-da idarə olunan yaddaşın digər bir hissəsidir və obyektlərin yaradılması üçün istifadə olunur. Heap, dinamik yaddaşın idarə olunması üçün istifadə olunur və obyektlər yaradıldıqda və ya dəyişənlər təyin edildikdə istifadə olunur. Heap, Garbage Collector tərəfindən idarə olunur və istifadə olunmayan obyektlər avtomatik olaraq təmizlənir.
+// 
+// C#-da Heap idarə olunan yaddaş səhəsidir. Bu sahə 3 əsas hissədən ibarətdir:
+// 1. Generation 0 - Yeni yaradılan obyektlərin saxlandığı sahədir. Bu sahədəki obyektlər tez-tez Garbage Collector tərəfindən təmizlənir və bu səbəbdən bu sahə ən sürətli sahədir.
+// 2. Generation 1 - Generation 0 sahəsi dolduqdan sonra obyekt yaradılarsa ilk öncə Garbage Collector işləyir və Generation 0 sahəsində olan reeferenci olmayan yəni istifadə olunmayan
+// obyektləri təmizləyir və bundan sonra istifadə olunan obyektləri Generation 1 sahəsinə ötürülür. Yeni obyektlər isə Generation 0- sahəsinə yazılır.
+// 3. Generation 2 - Generation 1 sahəsi dolduqdan sonra obyekt yaradılarsa Garbage Collector işləyir və Generation 1 sahəsində olan istifadə olunmayan
+// obyektləri təmizləyir və istifadə olunan obyektləri Generation 2 sahəsinə ötürür.
+// 
+// LOH - Large Object Heap - C#-da 85,000 byte-dan böyük ölçülü obyektlərin saxlandığı sahədir.
+// Pinned Heap - Garbage collector tərəfindən yerdəyişməsinə icazə verilməyən obyektlərin saxlandığı sahədir. Bu sahədəki obyektlər Garbage Collector tərəfindən təmizlənmir və bu səbəbdən bu sahə ən yavaş sahədir.
+// 
+//                                                                          
+// 
+// 
+// 
+//                                                                                    File Handling
+// 
+// File handling - C#-da fayllarla işləmək üçün istifadə olunan bir xüsusiyyətdir. Bu xüsusiyyət, faylları oxumaq, yazmaq, silmək və redaktə etmək üçün istifadə olunur. C#-da fayllarla işləmək üçün System.IO namespace-i daxil edilməlidir.
+// 
+// FileStream - C#-da fayllarla işləmək üçün istifadə olunan bir classdır. Bu class, faylları oxumaq və yazmaq üçün istifadə olunur. FileStream, System.IO namespace-i daxil edilməlidir. Məsələn:
+// Absolute path - C#-da faylın tam yolunu göstərmək üçün istifadə olunan bir xüsusiyyətdir. Bu xüsusiyyət, faylın yerləşdiyi yeri tam olaraq göstərir. Məsələn, "C:\Users\UserName\Documents\File.txt" kimi bir yol ola bilər.
+// Relative path - C#-da faylın nisbətən yolunu göstərmək üçün istifadə olunan bir xüsusiyyətdir. Bu xüsusiyyət, faylın yerləşdiyi yeri cari iş qovluğuna nisbətən göstərir. Məsələn, "Documents\File.txt" kimi bir yol ola bilər.  
+// 
+// FileStrean fileStream = new FileStream("file.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite); - bu kod parçası, "file.txt" adlı faylı açır və ya yaradır, fayla oxumaq və yazmaq üçün icazə verir.
+// Encoding - C#-da fayllarla işləyərkən istifadə olunan bir xüsusiyyətdir. Bu xüsusiyyət, faylın kodlaşdırma formatını göstərir. Məsələn, UTF-8, ASCII və s. kimi kodlaşdırma formatları mövcuddur. Encoding, System.Text namespace-i daxil edilməlidir. Məsələn:
+// fileStream.Write(Encoding.UTF8.GetBytes("Hello, World!"), 0, 13); - bu kod parçası, "Hello, World!" mətnini UTF-8 kodlaşdırma formatında "file.txt" faylına yazır.
+// Ən sonda faylı bağlamaq üçün fileStream.Close(); və ya using statement istifadə edə bilərik. Məsələn:
+// using (FileStream fileStream = new FileStream("file.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+// // {
+// do something with the file
+//  fileStream.Close(); // faylı bağlamaq üçün
+// 
+// 
+//                                          
+// 
+//                                                                      StreamWriter və StreamReader
+// 
+// StreamWriter - C#-da fayllara yazmaq üçün istifadə olunan bir classdır. Bu class, fayllara mətn yazmaq üçün istifadə olunur və System.IO namespace-i daxil edilməlidir. Bu class istənilən stream ilə işləyə bilər və fayllara mətn yazmaq üçün istifadə olunur. Məsələn:
+// string txt = "Hello, World!";
+// FileStream fileStream = new FileStream("file.txt", FileMode.OpenOrCreate, FileAccess.Write);
+// StreamWriter writer = new StreamWriter(fileStream);
+// 
+// foreach (char c in txt){
+//     writer.Write(c); // fayla hər bir simvolu yazır
+// }
+// writer.Close(); // faylı bağlayır
+// fileStream.Close(); // fayl streamini bağlayır
+// 
+// StreanReader - C#-da fayllardan mətn oxumaq üçün istifadə olunan bir classdır. Bu class, fayllardan mətn oxumaq üçün istifadə olunur və System.IO namespace-i daxil edilməlidir. Bu class istənilən stream ilə işləyə bilər və fayllardan mətn oxumaq üçün istifadə olunur. Məsələn:
+// 
+// FileStream fileStream = new FileStream("file.txt", FileMode.Open, FileAccess.Read);
+// StreamReader reader = new StreamReader(fileStream);                                
+// string content = reader.ReadToEnd(); // fayldan bütün məzmunu oxuyur
+// Console.WriteLine(content); // oxunan məzmunu konsola yazır
+// 
+// StreamReader.Close(); // faylı bağlayır
+// FileStream.Close(); // fayl streamini bağlayır
+// 
+// Biz bu fayllarla və streamlərlə işləyən zaman bəzən faylları açıq qalma ehtimalı olur. Bunun qarşısını almaq üçün try-finaly bloklarından istifadə edə bilərik.
+// 
+// 
+// 
+// Əlavə olaraq biz Using code blockundan istifadə  edə bilərik. Bu code bloku sadəcə IDisposable interface-i implement edən classlarla işləyir. Bu code bloku, istifadə olunan resursların avtomatik olaraq sərbəst buraxılmasını təmin edir.
+// Məsələn :
+// using (FileStream fileStream = new FileStream("file.txt", FileMode.OpenOrCreate, FileAccess.ReadWrite));
+// using (StreamWriter writer = new StreamWriter(fileStream));
+// FileStream fileStream = new FileStream("file.txt", FileMode.Open, FileAccess.Read);
+// StreamReader reader = new StreamReader(fileStream);
+// 
+// 
+// 
+// 
+// 
+//                                                                  IDisposable Interface
+// 
+// Bu interface, C#-da resursların düzgün şəkildə sərbəst buraxılmasını təmin etmək üçün istifadə olunur. IDisposable interface-i, obyektlərin sərbəst buraxılması üçün Dispose metodunu təyin edir. Bu metod, obyektin istifadə edildikdən sonra sərbəst buraxılması üçün çağırılır. Məsələn:
+// Amma bu kod zamanı exception ola bilər və bu zaman Dispose metodu çağırılmaya bilər. Bu səbəbdən try-finaly bloklarından istifadə edirik.
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
 // 
 // 
 // 
