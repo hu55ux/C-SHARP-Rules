@@ -283,6 +283,10 @@
 // var options = new JsonSerializerOptions{WriteIndented = true}
 // string jsonString=JsonSerializer.Serialize(names,options); istifadə olunur və səliqəli şəkildə faylda qeydiyyat aparılır. 
 // 
+// [NonSerialized] atributu - bu atribut obyektin serialize olunmamasını təmin edir. Yəni bu atributu istifadə edərək obyektin serialize olunmasını istəmədiyimiz field və ya property-ləri qeyd edə bilərik.
+// 
+// [JsonPropertyName("some string")] atributu - bu atribut başqa bir mənbədən data götürən zaman ona uyğun class yaradılarkən istifadə olunur və property-nin adını dəyişdirmək üçün istifadə olunur.
+// 
 // 
 // 
 //                                                                                          Delegate
@@ -652,7 +656,7 @@
 // FileStream fileStream = new FileStream("file.txt", FileMode.Open, FileAccess.Read);
 // StreamReader reader = new StreamReader(fileStream);
 // 
-// 
+// Using code blokunun digər avantajı bundan ibarətdirki bu scope daxilində yaradılan bütün obyektlər avtomatik olaraq Dispose metodunu çağıraraq sərbəst buraxılır. Bu, resursların düzgün şəkildə sərbəst buraxılmasını təmin edir və yaddaş sızmalarının qarşısını alır.
 // 
 // 
 // 
@@ -663,98 +667,98 @@
 // 
 // 
 // 
+//                                                                          BinaryWriter və BinaryReader
 // 
+// BinaryWriter - C#-da fayllara ikili (binary) məlumat yazmaq üçün istifadə olunan bir classdır. Bu class, fayllara ikili məlumat yazmaq üçün istifadə olunur və System.IO namespace-i daxil edilməlidir. Məsələn:
+// string filePath = "data.bin";
+// var data = new byte[] { 1, 2, 3, 4, 5 };
+// BinaryWriter writer = new BinaryWriter(File.Open(filePath, FileMode.Create));
+// For (int i = 0; i < data.Length; i++)
+// {//     writer.Write(data[i]); // fayla ikili məlumat yazır
+// }// writer.Close(); // faylı bağlayır
 // 
 // 
+// BinaryReader - C#-da fayllardan ikili (binary) məlumat oxumaq üçün istifadə olunan bir classdır. Bu class, fayllardan ikili məlumat oxumaq üçün istifadə olunur və System.IO namespace-i daxil edilməlidir. Məsələn:
+// string filePath = "data.bin";
+// var data = new byte[5];
+// BinaryReader reader = new BinaryReader(File.Open(filePath, FileMode.Open));
+// reader.Read(data, 0, data.Length); // fayldan ikili məlumat oxuyur
 // 
+// BinaryReader.Close(); // faylı bağlayır
 // 
+// BinaryWriterə yazılan datalar oxunan zaman yazılma ardıcıllığı ilə oxunmazsa datalar yanlış çıxacaq. Bu metodlar çox oxunaqlı və data təhlukəsizliyinə diqqət etmədiyi üçün çox istifadə olunmur.
 // 
 // 
 // 
+//                                      
 // 
+//                                                                              XML Serialization
 // 
+// XML - XML (eXtensible Markup Language) - C#-da məlumatların strukturlaşdırılmış şəkildə saxlanması və mübadiləsi üçün istifadə olunan bir formatdır. XML, məlumatların oxunaqlı və insan tərəfindən başa düşülən bir formatda saxlanmasını təmin edir. C#-da XML ilə işləmək üçün System.Xml.Serialization namespace-i daxil edilməlidir.
+// XML-də datalar tag-lərlə saxlanılır və bu tag-lər məlumatların strukturunu göstərir. XML, məlumatların mübadiləsi üçün geniş istifadə olunur və müxtəlif platformalar arasında məlumatların paylaşılmasını təmin edir. Məsələn, bir XML faylı aşağıdakı kimi görünə bilər:
+//
+// single object serialization:
+// XmlSerializer serializer = new XmlSerializer(typeof(Person));
+// using var file - new FileStream("person.xml", FileMode.Create);
+// serializer.Serialize(file, person); // person obyektini XML formatında fayla yazır
+// XML serializasiya zamanı mütləq parametrsiz constructor olmalıdır və property-lər public olmalıdır.
 // 
+// Multiple object serialization:
+// XmlSerializer serializer = new XmlSerializer(typeof(List<Person>));
+// using var file = new FileStream("people.xml", FileMode.Create);
+// serializer.Serialize(file, people); // people siyahısını XML formatında fayla yazır
 // 
 // 
 // 
+//                                                                                  Regular Expressions
 // 
+// Regular Expressions (RegEx) - C#-da mətnləri axtarmaq və manipulyasiya etmək üçün istifadə olunan bir vasitədir.
+// RegEx, müəyyən bir nümunəyə uyğun olan mətnləri tapmaq və dəyişdirmək üçün istifadə olunur. C#-da RegEx ilə işləmək üçün System.Text.RegularExpressions namespace-i daxil edilməlidir.
 // 
+// RegEx classının bu metodları mövcuddur:
 // 
+// ^ - Mətnin başlanğıcını göstərir. Məsələn, "^Hello" nümunəsi "Hello" ilə başlayan mətnləri tapır.
+// $ - Mətnin sonunu göstərir. Məsələn, "World$" nümunəsi "World" ilə bitən mətnləri tapır.
+// . - Istənilən bir simvolu göstərir. Məsələn, "H.llo" nümunəsi "Hello", "Hullo" və s. kimi mətnləri tapır.
+// \w - Hər hansı bir söz simvolunu göstərir (a-z, A-Z, 0-9 və alt xətt). Məsələn, "\w+" nümunəsi bir və ya daha çox söz simvolunu tapır.
+// \W - Hər hansı bir söz simvolu olmayan simvolu göstərir. Məsələn, "\W+" nümunəsi bir və ya daha çox söz simvolu olmayan simvolu tapır.
+// \s - Hər hansı bir boşluq simvolunu göstərir (boşluq, tab, yeni sətir və s.). Məsələn, "\s+" nümunəsi bir və ya daha çox boşluq simvolunu tapır.
+// \S - Hər hansı bir boşluq simvolu olmayan simvolu göstərir. Məsələn, "\S+" nümunəsi bir və ya daha çox boşluq simvolu olmayan simvolu tapır.
+// \d - Hər hansı bir rəqəm simvolunu göstərir (0-9). Məsələn, "\d+" nümunəsi bir və ya daha çox rəqəm simvolunu tapır.
+// \D - Hər hansı bir rəqəm simvolu olmayan simvolu göstərir. Məsələn, "\D+" nümunəsi bir və ya daha çox rəqəm simvolu olmayan simvolu tapır.
+// [abs] - Müəyyən bir simvollar dəstini göstərir. Məsələn, "[aeiou]" nümunəsi "a", "e", "i", "o" və "u" simvollarını tapır.
+// [^abs] - Müəyyən bir simvollar dəstini istisna edir. Məsələn, "[^aeiou]" nümunəsi "a", "e", "i", "o" və "u" simvolları xaricindəki simvolları tapır.
+// [a-n] - Müəyyən bir simvollar aralığını göstərir. Məsələn, "[a-z]" nümunəsi kiçik hərfləri tapır, "[A-Z]" isə böyük hərfləri tapır.
+// [^a-z] - Müəyyən bir simvollar aralığını istisna edir. Məsələn, "[^0-9]" nümunəsi rəqəm olmayan simvolları tapır.
 // 
+// * - Əvvəlki simvolun sıfır və ya daha çox təkrarlanmasını göstərir. Məsələn, "a*" nümunəsi "a", "aa", "aaa" və s. kimi mətnləri tapır.
+// + - Əvvəlki simvolun bir və ya daha çox təkrarlanmasını göstərir. Məsələn, "a+" nümunəsi "a", "aa", "aaa" və s. kimi mətnləri tapır.
+// ? - Əvvəlki simvolun sıfır və ya bir dəfə təkrarlanmasını göstərir. Məsələn, "a?" nümunəsi "a" və ya boş mətnləri tapır.
+// {m,z} - Əvvəlki simvolun m ilə z arasında təkrarlanmasını göstərir. Məsələn, "a{2,4}" nümunəsi "aa", "aaa" və "aaaa" kimi mətnləri tapır.
+// {n,} - Əvvəlki simvolun ən az n dəfə təkrarlanmasını göstərir. Məsələn, "a{2,}" nümunəsi "aa", "aaa", "aaaa" və s. kimi mətnləri tapır.
+// {n} - Əvvəlki simvolun dəqiq n dəfə təkrarlanmasını göstərir. Məsələn, "a{3}" nümunəsi "aaa" mətnini tapır.
+// ?= - sonra gələn patternin uyğun olub olmadığını yoxlayır, lakin onu nəticəyə daxil etmir. Məsələn, "a(?=b)" nümunəsi "ab" mətnini tapır, amma "a" simvolunu nəticəyə daxil etmir.
 // 
+// Məsələn , RegEx istifadə edərək bir e-poçt ünvanını tapmaq üçün aşağıdakı nümunəni istifadə edə bilərsiniz:
+// string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+// bu patterndə olan qaydalar 
+// 1. ^ - Mətnin başlanğıcını göstərir.
+// 2. [a-zA-Z0-9._%+-]+ - E-poçt ünvanının istifadəçi adını göstərir. Bu hissə, kiçik və böyük hərflər, rəqəmlər, alt xətt, nöqtə, faiz işarəsi, artı və minus işarələrini əhatə edir və ən az bir simvoldan ibarət olmalıdır.
+// 3. @ - E-poçt ünvanının "@" simvolunu göstərir.
+// 4. [a-zA-Z0-9.-]+ - E-poçt ünvanının domen adını göstərir. Bu hissə, kiçik və böyük hərflər, rəqəmlər, nöqtə və tire işarələrini əhatə edir və ən az bir simvoldan ibarət olmalıdır.
+// 5. \. - E-poçt ünvanının domen adından sonra nöqtə simvolunu göstərir. Bu hissə, domen adının sonunda nöqtə simvolunu tələb edir.
+// 6. [a-zA-Z]{2,} - E-poçt ünvanının domen uzantısını göstərir. Bu hissə, kiçik və böyük hərflərdən ibarət ən az iki simvoldan ibarət olmalıdır.
+// 7. $ - Mətnin sonunu göstərir.
+// İndi bunu yoxlayaq.
+// string gmail = "sjdda@gmail.com";
+// RegEx regex = new Regex(pattern);
+// Console.WriteLine(regex.IsMatch(gmail)); // true - bu e-poçt ünvanı düzgün formatdadır
 // 
 // 
+//                                                                  
 // 
 // 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
+//                                                                                      
 // 
 // 
 // 
