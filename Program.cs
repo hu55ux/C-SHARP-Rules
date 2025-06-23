@@ -758,72 +758,90 @@
 //                                                                  
 // 
 // 
-//                                                                                      
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
+//                                                                              Yield Keyword        
+// Yield keyword - C#-da iterator metodları yaratmaq üçün istifadə olunan bir xüsusiyyətdir.
+// Bu xüsusiyyət, metodların nəticələrini tək-tək qaytarmağa imkan verir və bu zaman bütün nəticələri birdən qaytarmır.
+// Yield keyword, IEnumerable və IEnumerator interface-ləri ilə işləmək üçün istifadə olunur.
+// 
+// Yield return - C#-da iterator metodlarında istifadə olunan bir xüsusiyyətdir. Bu xüsusiyyət, metodun nəticələrini tək-tək qaytarmağa imkan verir və bu zaman bütün nəticələri birdən qaytarmır.
+// Yield return, IEnumerable və IEnumerator interface-ləri ilə işləmək üçün istifadə olunur.
+// 
+// Yield break - C#-da iterator metodlarında istifadə olunan bir xüsusiyyətdir. Bu xüsusiyyət, iterator metodunun icrasını dayandırmağa imkan verir və nəticələri qaytarmadan metodu bitirir.
+// Yield MoveNext - C#-da iterator metodlarında istifadə olunan bir xüsusiyyətdir. Bu xüsusiyyət, iterator metodunun növbəti nəticəsini qaytarmağa imkan verir və bu zaman bütün nətic
+// 
+// 
+//                                                                              Range method
+// Range metodunun istifadəsi - C#-da Range metodu, bir sıra ədədləri və ya elementləri yaratmaq üçün istifadə olunan bir xüsusiyyətdir. Bu metod, IEnumerable interface-i ilə işləyir və System.Linq namespace-i daxil edilməlidir.
+// Range metodu, müəyyən bir başlanğıc və son ədəd arasında olan ədədləri və ya elementləri qaytarır.
+// 
+// Biz bu Range metodunu özümüzdə yaza bilərik və bu metodun həm 1 həm 2 həmdə üç parametrlə işləməsini təmin etmək üçün:
+// IEnumerable<int> Range(int start, int end = null, int steps = 1)
+// {//     if (end == null)
+//         end = start;
+//     for (int i = start; i <= end; i += steps)
+//     {
+//         yield return i; // Yield keyword ilə tək-tək ədədləri qaytarır
+//     }
+// }
+// 
+// 
+//                                                                          Primary Constructor
+// 
+// Primary constructor - C#-da classların konstruktorlarını daha qısa və oxunaqlı bir şəkildə yazmaq üçün istifadə olunan bir xüsusiyyətdir.
+// Bu xüsusiyyət, classın bütün property-lərini və field-lərini birbaşa konstruktor parametrinə təyin etməyə imkan verir.
+// Bizə bəzən qısa, oxunaqlı və kiçik ölçülü classdan ibarət kod yazmaq lazım olur və bu zaman Primary Constructor istifadə edə bilərik.
+// Bu xüsusiyyət zamanı classın fieldləri və propertiesləri mütləq private olmalıdır və bu classın konstruktoru birbaşa olaraq classın property-lərinə və field-lərinə təyin edilməlidir.
+// 
+// Syntax:
+// class Person(string name, int age)
+// {
+//     public string Name { get; } = name;
+//     public int Age { get; } = age;
+//    
+// }
+// 
+//                                                                        UML - Unified Modeling Language  
+// 
+// UML - Unified Modeling Language (Birləşmiş Modelləşdirmə Dili) - C#-da proqramların və sistemlərin modelləşdirilməsi üçün istifadə olunan bir dildir.
+// UML, proqramların və sistemlərin strukturlarını, davranışlarını və qarşılıqlı əlaqələrini təsvir etmək üçün istifadə olunur. UML, proqramların və sistemlərin dizaynını və arxitekturasını anlamağa kömək edir.
+// OOP ilə birlikdə kodumuz daha inkişaf etdi amma qarışıqlıq daha da artdı. Və bunun qarşısını almaq üçün UML istifadə olunur. 1997-ci ildə OMG (Object Management Group) tərəfindən standartlaşdırılmışdır.
+// 
+// UML diagramlar iki əsas hissədən ibarətdir:
+// Structural Diagrams - Proqramın və ya sistemin strukturunu və komponentlərini təsvir edir. Bu diagramlar, proqramın və ya sistemin arxitekturasını və komponentlərinin qarşılıqlı əlaqələrini göstərir. Məsələn, Class Diagram, Component Diagram, Deployment Diagram və s.
+// Behavioral Diagrams - Proqramın və ya sistemin davranışını və qarşılıqlı əlaqələrini təsvir edir. Bu diagramlar, proqramın və ya sistemin iş axınını və komponentlərinin qarşılıqlı əlaqələrini göstərir. Məsələn, Use Case Diagram, Sequence Diagram, Activity Diagram və s.
+// 
+// Bizim ən çox istifadə edəcəyimiz diagramlar class diagram, use case diagram və activity diagramdır.
+// 
+// 
+//                                                                          Class diagram
+// 
+// Class diagram - C#-da classların və onların qarşılıqlı əlaqələrinin təsvir edilməsi üçün istifadə olunan bir UML diagramıdır.
+// 
+// Bu diagramda bəzi işarələrlə biz classların xüsusiyyətlərini və qarşılıqlı əlaqələrini göstəririk:
+// +   - classın və ya property-nin public olduğunu göstərir.
+// -   - classın və ya property-nin private olduğunu göstərir. 
+// #   - classın və ya property-nin protected olduğunu göstərir.
+// ~   - classın və ya property-nin internal olduğunu göstərir.
+// altdan xətt - classın və ya property-nin static olduğunu göstərir.
+// 
+// Abstract class italik yazılır və ya başında "abstract" sözü ilə göstərilir.
+// İnterface isə başında "interface" sözü ilə göstərilir və adətən italic yazılır.
+// 
+// Biz classlar arasında əlaqələri göstərmək üçün aşağıdakı işarələrdən istifadə edirik:
+// Düz ox - inheritance əlaqəsi göstərir. Yəni bir class digər classdan miras alır.
+// Qırıq ox - interface əlaqəsi göstərir. Yəni bir class digər interface-i implement edir.
+// sadə xətt - association əlaqəsi göstərir. Yəni iki class arasında bir əlaqə var.
+// qırıq xətt - dependency əlaqəsi göstərir. Yəni bir class digər classa asılıdır.
+// Composition - iki class arasında güclü bir əlaqə olduğunu göstərir. Yəni bir class digər classın bir hissəsidir və onun ömrü ilə bağlıdır.
+// Aggregation - iki class arasında zəif bir əlaqə olduğunu göstərir. Yəni bir class digər classın bir hissəsi deyil, amma onunla əlaqəlidir.
+// 
+// 0..0 - classın heç bir elementi olmaya bilər.
+// 0..1 - classın ən çox bir elementi ola bilər.
+// 1..1 - classın dəqiq bir elementi olmalıdır.
+// 0..* - classın heç bir və ya çox sayda elementi ola bilər.
+// 1..* - classın ən az bir və ya çox sayda elementi olmalıdır.
+// 5..5 - classın dəqiq beş elementi olmalıdır.
+// m..n - classın m ilə n arasında elementi ola bilər. Məsələn, 1..5 - classın ən az bir və ən çox beş elementi ola bilər.
 // 
 // 
 // 
