@@ -844,21 +844,27 @@
 // m..n - classın m ilə n arasında elementi ola bilər. Məsələn, 1..5 - classın ən az bir və ən çox beş elementi ola bilər.
 // 
 // 
+//                                                          S.O.L.I.D. Principles
 // 
 // 
+// SOLID prinsipləri - C#-da obyekt yönümlü proqramlaşdırma (OOP) prinsiplərini təkmilləşdirmək və proqramların daha oxunaqlı,
+// genişlənə bilən və təmir edilə bilən olmasını təmin etmək üçün istifadə olunan bir dəstdir.
 // 
+// Single Responsibility Principle (SRP) - Hər bir classın yalnız bir məsuliyyəti olmalıdır.
+// Yəni, bir class yalnız bir funksionallığı yerinə yetirməlidir və bu funksionallıq dəyişdikdə yalnız bu class dəyişməlidir.
 // 
+// Open-Closed Principle (OCP) - Classlar genişlənə bilən, amma dəyişdirilə bilməz olmalıdır.
+// Bu prinsip bizə bir classın genişlənməyə və yeniliklərə açıq olmalıdır amma dəyişikliklərə qapalı olmalıdır.
+// Yəni, bir classın funksionallığını genişləndirmək üçün yeni classlar yaratmaq lazımdır, amma mövcud classları dəyişdirmək lazım deyil.
 // 
+// Liskov Substitution Principle (LSP) - Bir classın alt classları, yuxarı classın bütün funksionallığını yerinə yetirməlidir.
+// Yəni, bir classın alt classları, yuxarı classın bütün metodlarını və property-lərini implement etməlidir.
 // 
+// İnterface Segregation Principle (ISP) - Classlar, istifadə etmədikləri metodları içərməməlidir.
+// Bu prinsipə görə, bir classın interfeysi, yalnız istifadə olunan metodları içərməlidir və istifadə olunmayan metodları içərməməlidir.
 // 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
+// Dependency Inversion Principle (DIP) - Yüksək səviyyəli modullar, aşağı səviyyəli modullara asılı olmamalıdır.
+// Yəni, bir classın yüksək səviyyəli modulları, aşağı səviyyəli modullara asılı olmamalıdır. Bunun əvəzinə, hər iki modul da abstrakt interfeyslərə asılı olmalıdır.
 // 
 // 
 // 
