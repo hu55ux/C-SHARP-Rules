@@ -870,34 +870,169 @@
 // 
 // 
 // 
+//                                                              Design patterns
+// 
+// Design patterns - C#-da proqramların və sistemlərin dizaynını və arxitekturasını təkmilləşdirmək üçün istifadə olunan bir dəstdir.
+// 
+// 
+// Singleton pattern - C#-da bir classın yalnız bir instansiyasının yaradılmasını və bu instansiyanın qlobal olaraq əlçatan olmasını təmin etmək üçün istifadə olunan bir dizayn nümunəsidir.
+// Code example:
+//class President
+//{
+//    public string Name { get; set; }
+//    public string Surname { get; set; }
+//    public int Age { get; set; }
+
+//    private static President _president;
+
+//    private President(string name, string surname, int age)
+//    {
+//        Name = name;
+//        Surname = surname;
+//        Age = age;
+//    }
+//    public static President GetInstance(string name, string surname, int age)
+//    {
+//        if (_president == null)
+//        {
+//            _president = new President(name, surname, age);
+//        }
+//        return _president;
+//    }
+//}
+// 
+// Singleton patternin mənfi cəhəti ondan ibarətdir ki, bu pattern, classın instansiyasını qlobal olaraq əlçatan edir və bu, proqramın test edilməsini və genişləndirilməsini çətinləşdirə bilər. Bu səbəbdən, Singleton patterni yalnız lazım olduqda və diqqətlə istifadə edilməlidir.
+// Singleton pattern zamanı Single Responsibility məcburi şəkildə pozulur.
 // 
 // 
 // 
 // 
+// Builder pattern - C#-da kompleks obyektlərin yaradılmasını asanlaşdırmaq üçün istifadə olunan bir dizayn nümunəsidir.
+// Bu pattern, obyektin yaradılmasını addım-addım həyata keçirməyə imkan verir və bu zaman obyektin yaradılması üçün lazım olan bütün parametrləri təyin etməyə imkan verir.
+// Builder pattern zamanı bir interface realizasiya olunur və bu interfacedə mütləq bir GetResult() methodu olur və bu method bizə objektin yaradılmasını təmin edir.
+// Code example:
 // 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-// 
+//class House
+//{
+//    public int Walls { get; set; }
+//    public int Doors { get; set; }
+//    public int Windows { get; set; }
+//    public string Roof { get; set; }
+//    public string Color { get; set; }
+//    public bool hasGarage { get; set; }
+//    public bool hasGarden { get; set; }
+//    public bool hasPool { get; set; }
+//    public override string ToString()
+//    {
+//        return $"House with {Walls} walls, {Doors} doors, {Windows} windows, roof: {Roof}, color: {Color}, has garage: {hasGarage}, has garden: {hasGarden}, has pool: {hasPool}";
+//    }
+//}
+
+//interface IBuilder
+//{
+//    public House House { get; set; }
+//    IBuilder BuildWall();
+//    IBuilder BuildDoor();
+//    IBuilder BuildWindow();
+//    IBuilder BuildRoof();
+//    IBuilder BuildColor();
+//    IBuilder BuildGarage();
+//    IBuilder BuildGarden();
+//    IBuilder BuildPool();
+//    IBuilder Reset();
+//    House GetResult();
+//}
+
+//class StoneHouseBuilder : IBuilder
+//{
+//    public House House { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+//    public IBuilder BuildColor()
+//    {
+//        House.Color = "Gray";
+//        return this;
+//    }
+
+//    public IBuilder BuildDoor()
+//    {
+//        House.Doors++;
+//        return this;
+//    }
+
+//    public IBuilder BuildGarage()
+//    {
+//        House.hasGarage = true;
+//        return this;
+//    }
+
+//    public IBuilder BuildGarden()
+//    {
+//        House.hasGarden = true;
+//        return this;
+//    }
+
+//    public IBuilder BuildPool()
+//    {
+//        House.hasPool = true;
+//        return this;
+//    }
+
+//    public IBuilder BuildRoof()
+//    {
+//        House.Roof = "Stone";
+//        return this;
+//    }
+
+//    public IBuilder BuildWall()
+//    {
+//        House.Walls++;
+//        return this;
+//    }
+
+//    public IBuilder BuildWindow()
+//    {
+//        House.Windows++;
+//        return this;
+//    }
+
+//    public House GetResult() => House;
+
+
+//    public IBuilder Reset()
+//    {
+//        House = new House();
+//        return this;
+//    }
+//}
+//// Move the top-level statement into a Main method within a Program class to fix CS8803.
+//// Change the type of 'builder' from 'IBuilder' to 'StoneHouseBuilder' to fix CA1859.
+
+//internal class Program
+//{
+//    private static void Main()
+//    {
+//        StoneHouseBuilder builder = new StoneHouseBuilder();
+//        var stoneHouse = builder.Reset()
+//            .BuildWall()
+//            .BuildWall()
+//            .BuildDoor()
+//            .BuildWindow()
+//            .BuildRoof()
+//            .BuildColor()
+//            .BuildGarage()
+//            .BuildGarden()
+//            .BuildPool()
+//            .GetResult();
+
+//        Console.WriteLine(stoneHouse);
+//    }
+//}
+//
+//
+//  
+//     
+//  Factory pattern - C#-da obyektlərin yaradılmasını asanlaşdırmaq üçün istifadə olunan bir dizayn nümunəsidir.   
+//  Factory pattern, obyektlərin yaradılmasını bir factory class vasitəsilə həyata keçirməyə imkan verir. Bu pattern, obyektlərin yaradılmasını müstəqil və genişlənə bilən bir şəkildə həyata keçirməyə imkan verir.   
 // 
 // 
 // 
