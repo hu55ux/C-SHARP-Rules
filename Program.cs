@@ -43,7 +43,7 @@
 // Consolda yazılan textin UTF-8 dilində işləməsi üçün Console.OutputEncoding = System.Text.Encoding.UTF8; yazmalıyıq.
 // C#-da 2 anonim tip var. var və dynamic. var tipində olan dəyişənlər compile time-da müəyyən edilir. dynamic tipində olan dəyişənlər isə runtime-da müəyyən edilir.
 // safe və unsafe sahələri var. unsafe sahədə yazılan kodun düzgünlüyünü developerin məsuliyyətinə buraxır.
-// checked sahə - Arximetik riyazi əməliyyatlar zamanı dəyişən overаlow baş verir.
+// checked sahə - Arximetik riyazi əməliyyatlar zamanı dəyişən overflow baş verir.
 // Bu overflow zamanı dəyər itkisi olmaması üçün checked istifadə edirik.
 // 
 //
@@ -72,7 +72,7 @@
 // 5. Other operators - sizeof(), typeof() , nameof().
 // 
 // is operatoru - dəyərin həmin tipdə olub olmamasını yoxlayır.
-// as operatoru - dəyərin həmin tipə çeverilə bilərsə çevirir amma çevrilə bilməzsə null qaytarır.
+// as operatoru - dəyərin həmin tipə çevrilə bilərsə çevirir amma çevrilə bilməzsə null qaytarır.
 // ref keywordu - dəyişənin reference-ni göndərmək üçün istifadə olunur.
 // out keywordu - dəyişənin bir dəyəri yoxdursa əgər bu zaman onun özünü göndərmək üçün istifadə olunur.
 // in keywordu - dəyişənin dəyişilməsinə icazə vermir sadəcə ekrana çıxarılması mümkün olur.
@@ -105,7 +105,7 @@
 // 3.Private - heç bir yerdə görünmür
 // 4.İnternal - sadəcə həmin solution üçün görünür digər solutionlarda görünmür
 //
-//  Properties - özündə getter və setter saxlayan və arxa planda private field olan elemnetlərdir.
+//  Properties - özündə getter və setter saxlayan və arxa planda private field olan elementlərdir.
 // 3 növü var - 
 // 1. Auto property - Automatic getter və setteri olan property
 // 2. Full property - getter və setteri özümüz yaza bildiyimiz propertydir.
@@ -184,7 +184,7 @@
 // 
 // Çoxölçülü arraylar 2 və daha artıq ölçülü arraylardır.Bunların iki növü var:
 // 1. Rectangle array - ölçüsü stabil olan arraylardır.
-// 2. Jagger array - ölçüsü dinamik olan arraydır.
+// 2. Jagger array - ölçüsü dinamik olan arraydır. 
 // 
 //                                                                  Struct vs Class
 //
@@ -202,7 +202,7 @@
 // 
 // 1. Multiple inheritance yoxdur (diamond problemə görə). Onun yerinə interface istifadə olunur.
 // 2. GUID - global unique ID yaradarkən istifadə olunur.
-// 3. inheritance zamanı paramtrized constrictor yaradılarkən base classın adı yerinə sadəcə base keywordu yazılır.
+// 3. inheritance zamanı paramtrized constructor yaradılarkən base classın adı yerinə sadəcə base keywordu yazılır.
 // Məsələn: 
 // public Student(Guid id,string? name,DateTime birthdate,float score)
 // :base(id,name,birthdate)
@@ -242,6 +242,7 @@
 // 
 // 
 //                                                                          Interface
+//
 // Interface obyekti yaradıla bilinmeyen içində sadəcə methodlar olan və bu methodları implementasiya edə bilən bir kod blokudur.
 // Hər bir class istənilən sayda interface-dən implementasiya qəbul edir. Interface-lər default olaraq internal olur.
 // Interface daxilində bodysi olan methodlarda ola bilər amma bunlar mütləq implementasiya zamanı override olunmalıdır.
@@ -299,7 +300,7 @@
 // 1. Action - 16 - ya qədər parametr qəbul edə bilən və void returntypeda olan methodlar üçün nəzərdə tutulmuş generic delegate-dir.
 // 2. Func - 16 - ya qədər parametr qəbul edə bilən və return type-ı olan methodlar üçün nəzərdə tutulmuş generic delegate-dir.
 // 3. Predicate - 1 parametr qəbul edən və bool return type-ı olan methodlar üçün nəzərdə tutulmuş generic delegate-dir.
-// 4. Comparison - 2 parametr qəbul edən və int return type-ı olan methodlar üçün nəzərdə tutulmuş generic delegate-dir. Bu delegate-lər sortlama əməliyyatlarında istifadə olunur.o.sefc
+// 4. Comparison - 2 parametr qəbul edən və int return type-ı olan methodlar üçün nəzərdə tutulmuş generic delegate-dir. Bu delegate-lər sortlama əməliyyatlarında istifadə olunur.
 // 
 // 
 // Indexator - C#-da class və ya struct daxilində array və ya kolleksiya kimi verilənlərə indekslə daxil olmaq üçün istifadə olunan bir xüsusiyyətdir.
@@ -311,7 +312,7 @@
 // Bildiyimiz kimi classlardan törəmə zamanı class yeni classın kim olduğunu və ya nə olduğunu bildirir. 
 // Amma Interface-lər isə classımızın nə edə bildiyini idarə edir.
 // Standart Interfacelər C#-ın özü ilə gələn interfacelərdir.Məsələn:
-// Biz bu metodları əsas classımızda implement edərək metodun necə işləyəcəyini təyin edirik.
+// Biz bu metodları əsas classımızda implementasiya edərək metodun necə işləyəcəyini təyin edirik.
 // IEnumerable - Classın elementlərini dövr etməyə imkan verən interface-dir. Bu interface-in içərisində GetEnumerator() metodu var.
 //
 // IComperable - Classın elementlərini müqayisə etməyə imkan verən interface-dir. Bu interface-in içərisində CompareTo() metodu var.
@@ -694,7 +695,7 @@
 // 
 //                                                                              XML Serialization
 // 
-// XML - XML (eXtensible Markup Language) - C#-da məlumatların strukturlaşdırılmış şəkildə saxlanması və mübadiləsi üçün istifadə olunan bir formatdır. XML, məlumatların oxunaqlı və insan tərəfindən başa düşülən bir formatda saxlanmasını təmin edir. C#-da XML ilə işləmək üçün System.Xml.Serialization namespace-i daxil edilməlidir.
+// XML - XML (Extensible Markup Language) - C#-da məlumatların strukturlaşdırılmış şəkildə saxlanması və mübadiləsi üçün istifadə olunan bir formatdır. XML, məlumatların oxunaqlı və insan tərəfindən başa düşülən bir formatda saxlanmasını təmin edir. C#-da XML ilə işləmək üçün System.Xml.Serialization namespace-i daxil edilməlidir.
 // XML-də datalar tag-lərlə saxlanılır və bu tag-lər məlumatların strukturunu göstərir. XML, məlumatların mübadiləsi üçün geniş istifadə olunur və müxtəlif platformalar arasında məlumatların paylaşılmasını təmin edir. Məsələn, bir XML faylı aşağıdakı kimi görünə bilər:
 //
 // single object serialization:
@@ -901,7 +902,8 @@
 //    }
 //}
 // 
-// Singleton patternin mənfi cəhəti ondan ibarətdir ki, bu pattern, classın instansiyasını qlobal olaraq əlçatan edir və bu, proqramın test edilməsini və genişləndirilməsini çətinləşdirə bilər. Bu səbəbdən, Singleton patterni yalnız lazım olduqda və diqqətlə istifadə edilməlidir.
+// Singleton patternin mənfi cəhəti ondan ibarətdir ki, bu pattern, classın instansiyasını qlobal olaraq əlçatan edir və bu, proqramın test edilməsini və genişləndirilməsini çətinləşdirə bilər.
+// Bu səbəbdən, Singleton patterni yalnız lazım olduqda və diqqətlə istifadə edilməlidir.
 // Singleton pattern zamanı Single Responsibility məcburi şəkildə pozulur.
 // 
 // 
@@ -1004,8 +1006,7 @@
 //        return this;
 //    }
 //}
-//// Move the top-level statement into a Main method within a Program class to fix CS8803.
-//// Change the type of 'builder' from 'IBuilder' to 'StoneHouseBuilder' to fix CA1859.
+
 
 //internal class Program
 //{
@@ -1036,9 +1037,53 @@
 // 
 // 
 // 
+// Observer pattern (Müşahidəçi nümunəsi) C# dilində obyektlər arasında bir-biri ilə əlaqə yaratmaq üçün istifadə olunan davranış nümunəsidir.
+// Bu nümunədə, bir obyektin (subject) vəziyyətində dəyişiklik baş verdikdə, ona bağlı olan digər obyektlərə (observer-lərə) avtomatik xəbər verilir.
+// Beləliklə, müşahidəçilər data dəyişikliklərini izləyə və ona uyğun reaksiya verə bilirlər.
+// İş prinsipi
+//
+// Subject (İzlənən obyekt): Bildiriş göndərən obyekt. Özündə müşahidəçi (observer) obyektlərinin siyahısını saxlayır və onlara dəyişiklik baş verdikdə xəbər verir.
+// Observer (Müşahidəçi): Subject - də baş verən dəyişikliklərə reaksiya verən obyektlərdir.
+// Attach/Detach: Observer - lər Subject - ə abunə ola və ya çıxa bilər.
+// Notify: Subject - də dəyişiklik olduqda, bütün observer-lərə xəbər verilir (onların “update” metodları çağırılır).
+// 
+// 
+// Adapter pattern — obyekt yönümlü proqramlaşdırmada tez-tez istifadə olunan bir dizayn nümunəsidir (design pattern).
+// Adapter (Uyğundurma) pattern-i, iki fərqli interfeysə sahib obyektlərin bir yerdə işləməsini təmin edir.
+// Yəni, bir obyektin interfeysini, başqa bir obyektin gözlədiyi interfeysə çevirir.
+//
+// Prinsip
+//
+// Adapter — müxtəlif interfeysləri uyğunlaşdıraraq, mövcud kodları dəyişmədən yeni komponentləri sistemə əlavə etməyə imkan verir.
+// Əsas məqsəd — bir obyektin interfeysini, istifadəçinin gözlədiyi interfeysə çevirməkdir.
+// Strukturu
+// Target (Hədəf): İstifadəçinin gözlədiyi interfeys.
+// Adaptee (Uyğunlaşdırılacaq): Mövcud, lakin interfeysi fərqli olan sinif.
+// Adapter: Adaptee - nin interfeysini Target-ə uyğunlaşdıran sinif.
+//
 // 
 // 
 // 
+// 
+// Facade pattern (Fasad nümunəsi) obyekt yönümlü proqramlaşdırmada struktur nümunələrdən biridir.
+// Məqsədi, mürəkkəb bir sistemin funksionallığını sadə bir interfeys (fasad) vasitəsilə təqdim etməkdir.
+// Beləliklə, istifadəçi sistemin kompleksliyini görmədən onun imkanlarından istifadə edə bilir.
+//
+// Prinsip
+//
+// Facade — mürəkkəb alt sistemə sadə çıxış nöqtəsi yaradır.
+// İstifadəçi yalnız fasad (facade) sinifinə müraciət edir, alt sistemin detallarından xəbərdar olmur.
+// Kodun oxunaqlığını və idarəsini asanlaşdırır.
+// 
+// Strategy pattern (Strategiya nümunəsi) obyekt yönümlü proqramlaşdırmada davranış nümunələrindən biridir.
+// Bu nümunənin əsas məqsədi, bir işin icrasını (algoritmi) müxtəlif yollarla həyata keçirmək və bu yolları (strategiyaları)
+// dəyişə bilmək imkanı yaratmaqdır. Beləliklə, davranış (algoritm) obyektin daxilində deyil, ayrıca strategiya siniflərində yerləşir
+// və lazım olduqda dəyişdirilə bilər.
+//
+// Prinsip
+// Strategy — bir ailəyə aid olan alqoritmləri bir-birinin yerinə istifadə oluna bilən obyektlər kimi müəyyən edir.
+// İstifadəçi obyektin davranışını dinamik olaraq dəyişə bilər.
+// Əsas məqsəd: “if-else” və ya “switch-case” bloklarını aradan qaldırmaq, kodun oxunaqlığını və genişlənə bilənliyini artırmaqdır.
 // 
 // 
 // 
